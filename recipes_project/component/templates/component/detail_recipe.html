@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'blog/base_templates.html' %}
+
+{% block content %}
+    <title>{{recipe.name}}</title>
+
+<p>Автор рецепту : {{recipe.author}}</p>
+    <p>Час готування {{recipe.cooking_time}} хвилин</p>
+    <p>{{recipe.description|truncatechars:99}}</p>
+    <img src="{{recipe.image.url}}">
+    <p>{{recipe.date}}</p>
+<form action="{% url 'recipe:all_recipes' %}">
+    <input type="submit" value="До рецептів">
+</form>
+<form action="{% url 'blog:all_blog' %}">
+    <input type="submit" value="До блогу">
+</form>
+<form action="{% url 'home' %}">
+    <input type="submit" value="На головну">
+</form>
+{% endblock %}

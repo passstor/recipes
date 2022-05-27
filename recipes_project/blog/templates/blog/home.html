@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Рецепти</title>
 </head>
 <body>
-Основна стр
+Приувет
 
+<div><img src="{% static 'blog\1234.jpg' %}" height="200" width="400">
+<form action="{% url 'blog:all_blog' %}">
+    <input type="submit" value="До блогу">
+</form>
+<form action="{% url 'recipe:all_recipes' %}">
+    <input type="submit" value="До рецептів">
+</form>
+    </div>
 </body>
 </html>
